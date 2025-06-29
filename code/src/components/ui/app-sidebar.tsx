@@ -1,4 +1,6 @@
-﻿import { Calendar, Home, Inbox, Search, Settings } from "lucide-react"
+﻿"use client";
+
+import { ScrollText, ChartLine } from "lucide-react"
 
 import {
   Sidebar,
@@ -10,47 +12,35 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "./sidebar"
+import {usePathname} from "next/navigation";
 
 // Menu items.
 const items = [
   {
-    title: "Home",
-    url: "#",
-    icon: Home,
+    title: "Dashboard",
+    url: "dashboard",
+    icon: ChartLine,
   },
   {
-    title: "Inbox",
+    title: "Posts",
     url: "#",
-    icon: Inbox,
-  },
-  {
-    title: "Calendar",
-    url: "#",
-    icon: Calendar,
-  },
-  {
-    title: "Search",
-    url: "#",
-    icon: Search,
-  },
-  {
-    title: "Settings",
-    url: "#",
-    icon: Settings,
+    icon: ScrollText,
   },
 ]
 
 export function AppSidebar() {
+  const pathname = usePathname().split("/")[1];
+  console.log(pathname);
   return (
     <Sidebar>
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel>Application</SidebarGroupLabel>
+          <SidebarGroupLabel>IntelliBlog</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {items.map((item) => (
                 <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild>
+                  <SidebarMenuButton asChild isActive={pathname === item.url}>
                     <a href={item.url}>
                       <item.icon />
                       <span>{item.title}</span>
