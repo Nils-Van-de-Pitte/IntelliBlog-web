@@ -1,5 +1,11 @@
-﻿export default function Page() {
+﻿import {Header} from "@/src/components/ui/header";
+
+export default function Page() {
   return (
-    <h1>Posts</h1>
+    <Header
+      title="Posts Overview"
+      subTitle="Quickly manage and update your content from one place"
+    />
+
   )
 }
