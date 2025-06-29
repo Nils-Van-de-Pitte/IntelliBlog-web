@@ -5,7 +5,7 @@
 
 export function Header({ title, subTitle }: TitleProps) {
   return (
-    <header className="ml-10">
+    <header className="ml-10 mb-20">
       <h1 className="font-medium">{title}</h1>
       <h2 className="text-neutral-400">{subTitle}</h2>
     </header>
