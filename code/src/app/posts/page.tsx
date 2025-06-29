@@ -6,6 +6,5 @@ export default function Page() {
       title="Posts Overview"
       subTitle="Quickly manage and update your content from one place"
     />
-
-  )
+  );
 }
