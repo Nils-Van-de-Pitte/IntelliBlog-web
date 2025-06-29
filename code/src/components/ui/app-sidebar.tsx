@@ -23,7 +23,7 @@ const items = [
   },
   {
     title: "Posts",
-    url: "#",
+    url: "posts",
     icon: ScrollText,
   },
 ]
