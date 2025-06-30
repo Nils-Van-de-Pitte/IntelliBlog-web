@@ -13,19 +13,30 @@ import {JSX} from "react";
 export default function Page(): JSX.Element {
   return (
     <>
-      <div className="flex justify-between">
-        <Header
-          title="Posts Overview"
-          subTitle="Quickly manage and update your content from one place"
-        />
-        <Button>Write a post</Button>
-      </div>
+        {/*Title container*/}
+        <div className="flex justify-between mr-10">
+          <Header
+            title="Posts Overview"
+            subTitle="Quickly manage and update your content from one place"
+          />
+          <Button variant="outline" size="sm">
+            Create Post
+          </Button>
+        </div>
 
-      <Post title="Small Steps, Big Changes 🚀"
-            content="Every day is a chance to take one small step toward a bigger goal.
+        {/*Content container*/}
+        <div className="flex flex-wrap ml-10">
+          <Post title="Small Steps, Big Changes 🚀"
+                content="Every day is a chance to take one small step toward a bigger goal.
             It doesn’t have to be perfect — it just has to move you forward. Keep showing up. Keep trying. That’s how growth happens🌱"
-            likes={5}
-            tags={["#motivation", "#progressnotperfection", "#keepgoing"]}/>
+                likes={5}
+                tags={["#motivation", "#progressnotperfection", "#keepgoing"]}/>
+          <Post title="Small Steps, Big Changes 🚀"
+                content="Every day is a chance to take one small step toward a bigger goal.
+            It doesn’t have to be perfect — it just has to move you forward. Keep showing up. Keep trying. That’s how growth happens🌱"
+                likes={5}
+                tags={["#motivation", "#progressnotperfection", "#keepgoing"]}/>
+        </div>
     </>
   );
 }

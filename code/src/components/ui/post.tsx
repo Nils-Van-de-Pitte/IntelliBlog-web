@@ -8,7 +8,7 @@
 export function Post({title, content, tags, likes }: PostProps) {
 
   return(
-    <div className="w-100 border-2 border-accent rounded-md p-4 ml-10 flex flex-col justify-between">
+    <div className="w-100 border-2 border-accent rounded-md p-4 mr-5 flex flex-col justify-between">
       <h2 className="mb-5">{title}</h2>
       <p className="mb-5">{content}</p>
       <p className="text-blue-400">
