@@ -6,9 +6,9 @@ import {JSX, ReactNode, useState} from 'react'
 
 /**
  * A React component that provides a QueryClient context for managing server state
- * within a React application, utilizing React Query features.
+ * within a React application, using React Query features.
  *
- * @param {Object} props The props object.
+ * @param {Object} props The prop object.
  * @param {ReactNode} props.children React components or elements to be wrapped by the QueryClientProvider.
  * @return {JSX.Element} The QueryClientProvider component with the provided `children` wrapped,
  *         along with React Query DevTools for debugging purposes.
