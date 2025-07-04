@@ -1,4 +1,6 @@
-﻿interface PostProps {
+﻿import {Skeleton} from "@/src/components/ui/skeleton";
+
+interface PostProps {
   title: string;
   content: string;
   tags: string[];
@@ -21,4 +23,10 @@ export function Post({title, content, tags, likes }: PostProps) {
       <p>{likes} likes</p>
     </div>
   );
+}
+
+export function PostSkeleton() {
+  return (
+    <Skeleton className="w-100 border-2 border-accent rounded-md p-4 mr-5 flex flex-col justify-between pb-40"/>
+  )
 }
