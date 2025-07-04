@@ -1,5 +1,8 @@
-﻿import {useQuery} from '@tanstack/react-query';
+﻿"use client";
+
+import {useQuery, UseQueryResult} from '@tanstack/react-query';
 import {getPosts} from "@/src/api/posts";
+import {Posts} from "@/src/types/types";
 
 /**
  * A custom hook that retrieves a list of posts using react-query's `useQuery` hook.
@@ -9,10 +12,10 @@ import {getPosts} from "@/src/api/posts";
  *
  * @returns {Object} An object provided by `useQuery` which contains the status of the
  * query, the fetched data, error information (if any), and various helper functions
- * provided by react-query.
+ * provided by a react-query.
  */
-export const usePost = (): object => {
-  return useQuery({
+export const usePost = ():  UseQueryResult<Posts[]> => {
+  return useQuery<Posts[], Error>({
     queryKey: ['posts'],
     queryFn: getPosts,
   })

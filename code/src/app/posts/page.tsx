@@ -1,7 +1,12 @@
-﻿import {Header} from "@/src/components/ui/header";
-import {Post} from "@/src/components/ui/post";
+﻿"use client";
+
+import {Header} from "@/src/components/ui/header";
+import {Post, PostSkeleton} from "@/src/components/ui/post";
 import {Button} from "@/src/components/ui/button";
+import {usePost} from "@/src/hooks/use-post";
+import {Error} from "@/src/components/ui/error";
 import {JSX} from "react";
+import {Posts} from "@/src/types/types";
 
 /**
  * Renders the Posts Page.
@@ -11,6 +16,8 @@ import {JSX} from "react";
  *                       content, likes, and tags.
  */
 export default function Page(): JSX.Element {
+  const {data, isPending, error} = usePost();
+
   return (
     <>
         {/*Title container*/}
@@ -24,15 +31,24 @@ export default function Page(): JSX.Element {
           </Button>
         </div>
 
-        {/*Content container*/}
-        <div className="flex flex-wrap ml-10">
-          <Post title="Small Steps, Big Changes 🚀"
-                content="Every day is a chance to take one small step toward a bigger goal.
-            It doesn’t have to be perfect — it just has to move you forward. Keep showing up. Keep trying. That’s how growth happens🌱"
-                likes={5}
-                tags={["#motivation", "#progressnotperfection", "#keepgoing"]}
-          />
-        </div>
+      {/*Content container*/}
+      <div className="flex flex-wrap ml-10">
+        {isPending ? (
+          <PostSkeleton />
+        ) : (
+          error ? (<Error message={error.message}></Error>) : (
+            data?.map((post: Posts) => (
+              <Post
+                key={post.id}
+                content={post.content}
+                likes={post.likes}
+                tags={post.tags}
+                title={post.title}
+              />
+            ))
+          )
+        )}
+      </div>
     </>
   );
 }
